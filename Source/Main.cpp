@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstdint>
 
+#include <sqlite3.h>
+
 namespace DB
 {
     struct Entity
@@ -13,7 +15,8 @@ namespace Model
 {
     struct Mode : public DB::Entity
     {
-
+        std::string Name{};
+        std::string Description{};
     };
 };
 

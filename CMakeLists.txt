@@ -5,4 +5,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(AGuesser)
 
+add_subdirectory(Dependency)
 add_subdirectory(Source)
