@@ -17,6 +17,13 @@ namespace ASYS
     {
         consteval StringLiteral() noexcept = default;
 
+        template <std::size_t _OtherSize>
+            requires (_OtherSize <= _Size)
+        consteval StringLiteral(const StringLiteral<_OtherSize>& literal) noexcept
+        {
+            std::copy_n(literal.Data.begin(), _OtherSize, Data.begin());
+        }
+
         consteval StringLiteral(const char (&data)[_Size]) noexcept
         {
             std::copy_n(data, _Size, Data.begin());
@@ -38,6 +45,11 @@ namespace ASYS
             return Data[index];
         }
 
+        constexpr operator const char* () const noexcept
+        {
+            return Data.data();
+        }
+
         template <std::size_t _OtherSize>
         constexpr auto operator + (StringLiteral<_OtherSize> literal)
             const noexcept -> StringLiteral<_Size + _OtherSize - 1>
@@ -56,6 +68,37 @@ namespace ASYS
             }
 
             return result;
+        }
+
+        template <std::size_t _OtherSize>
+        constexpr auto operator == (const StringLiteral<_OtherSize>& literal)
+            const noexcept -> bool
+        {
+            for (auto i = 0uz, end = std::max(_Size, _OtherSize); i < end; ++i)
+            {
+                if (i >= _Size)
+                {
+                    return !literal[i];
+                }
+                if (i >= _OtherSize)
+                {
+                    return !Data[i];
+                }
+
+                if (Data[i] != literal[i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        template <std::size_t _OtherSize>
+        constexpr auto operator != (const StringLiteral<_OtherSize>& literal)
+            const noexcept -> bool
+        {
+            return !(*this == literal);
         }
 
         std::array<char, _Size> Data{};
