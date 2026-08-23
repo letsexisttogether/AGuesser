@@ -4,36 +4,16 @@
 #include <sqlite3.h>
 #include <stdexcept>
 
-namespace DB
-{
-    struct Entity
-    {
-        std::uint32_t ID{};
-    };
-};
+#include "System/Exception.hpp"
 
-namespace Model
-{
-    struct Mode : public DB::Entity
-    {
-        std::string Name{};
-        std::string Description{};
-    };
-};
-
-/*
-    1. Choose mode
-    2. Read the possbile heroes
-    3. Choose a hero
-    4. Read the hero data by mode
-*/
+#include "System/StringLiteral.hpp"
+#include "DB/Core/Core.hpp"
 
 auto main() -> std::int32_t
 {
     try
     {
-
-        std::cout << "Hello, AGuesser" << std::endl;
+        std::cout << ASYS::SL{ "Hello, AGuesser" } << std::endl;
 
         sqlite3* db{};
 
@@ -41,6 +21,26 @@ auto main() -> std::int32_t
         {
             throw std::runtime_error{ "[AGuesser] Can't open database" };
         }
+
+        constexpr auto a = ASYS::SL<60>{ ASYS::SL{ "Hello" } };
+        constexpr auto b = ASYS::SL{ "Hello" };
+
+        auto table = ADB::Table<ASYS::SL{ "Users" }>{};
+        constexpr auto nameField = ADB::Field{ ASYS::SL{ "Name" }, 5 };
+        constexpr auto emailField = ADB::Field{ ASYS::SL{ "Email" }, 3 };
+
+        constexpr auto query = table.Select(nameField, emailField);
+
+        std::cout << query << std::endl;
+
+        static_assert(a == b, "Not equal");
+        static_assert(b == a, "Not equal");
+
+        throw ASYS::Exception{ ASYS::Error{ ASYS::ErrorType::NoEror, 1 } };
+    }
+    catch (const ASYS::Exception& exp)
+    {
+        std::cerr << exp.what() << std::endl;
     }
     catch (const std::exception& exp)
     {
