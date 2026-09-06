@@ -6,7 +6,8 @@
 
 #include "System/Exception.hpp"
 
-#include "System/StringLiteral.hpp"
+#include <ASYS/String/StringLiteral.hpp>
+
 #include "DB/Core/Core.hpp"
 
 auto main() -> std::int32_t

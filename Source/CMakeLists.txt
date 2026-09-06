@@ -6,5 +6,6 @@ add_subdirectory(System)
 target_include_directories(${PROJECT_NAME}
     PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
-target_link_libraries(${PROJECT_NAME}
-    PRIVATE SQLite::SQLite3)
+target_link_libraries(${PROJECT_NAME} PRIVATE 
+    SQLite::SQLite3
+    ASYS::String)
