@@ -20,14 +20,28 @@ def CreateTables(cursor):
             ID INTEGER PRIMARY KEY AUTOINCREMENT,
             Name TEXT NOT NULL,
             Email TEXT NOT NULL
-        ) 
+        );
     """)
 
 def DeleteData(cursor):
     pass
 
 def InsertData(cursor):
-    pass
+    PrintProgramName('InsertingData')
+
+    PrintProgramName('TABLE: Users')
+    cursor.execute("""
+        INSERT INTO Users (Name, Email)
+        VALUES ('Alex', 'letmeexist95@gmail.com');
+    """)
+    cursor.execute("""
+        INSERT INTO Users (Name, Email)
+        VALUES ('Someone', 'Somemail@gmail.com');
+    """)
+    cursor.execute("""
+        INSERT INTO Users (Name, Email)
+        VALUES ('EndRow', 'Somemail@gmail.com');
+    """)
 
 
 if __name__ == '__main__':
