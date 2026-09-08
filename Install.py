@@ -4,16 +4,16 @@ from pathlib import Path
 DATA_DIR = Path('Data')
 DB_NAME = DATA_DIR / 'AGuesserData.db'
 
-def PrintProgramName(phrase: str):
+def PrintProgramName(phrase: str = ""):
     programName = '[Install.py] '
 
     finalPhrase = programName + phrase
     print(finalPhrase)
 
 def CreateTables(cursor):
-    PrintProgramName('Creating tables')
+    print('[CREATING TABLES]')
 
-    PrintProgramName('TABLE: Users')
+    print('TABLE: Users')
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS Users
         (
@@ -22,37 +22,47 @@ def CreateTables(cursor):
             Email TEXT NOT NULL
         );
     """)
+    print()
 
 def DeleteData(cursor):
-    pass
+    print('[DELETING DATA]')
+
+    print('TABLE: Users')
+    cursor.execute("""
+        DELETE FROM Users;
+    """)
+    print()
 
 def InsertData(cursor):
-    PrintProgramName('InsertingData')
+    print('[INSERTING DATA]')
 
-    PrintProgramName('TABLE: Users')
+    print('TABLE: Users')
     cursor.execute("""
         INSERT INTO Users (Name, Email)
         VALUES ('Alex', 'letmeexist95@gmail.com');
     """)
     cursor.execute("""
         INSERT INTO Users (Name, Email)
-        VALUES ('Someone', 'Somemail@gmail.com');
+        VALUES ('Someone', 'SomeEmail@gmail.com');
     """)
     cursor.execute("""
         INSERT INTO Users (Name, Email)
-        VALUES ('EndRow', 'Somemail@gmail.com');
+        VALUES ('EndRow', 'EndRowEmail@gmail.com');
     """)
+    print()
 
 
 if __name__ == '__main__':
+    PrintProgramName();
+
     if not DATA_DIR.exists():
-        PrintProgramName('Creating data directory')
+        print('Creating data directory')
         DATA_DIR.mkdir()
 
     connection = sqlite3.connect(DB_NAME)
     cursor = connection.cursor()
 
-    PrintProgramName('Database init start')
+    print('[DATABASE INIT START]\n')
 
     CreateTables(cursor)
     DeleteData(cursor)
@@ -61,4 +71,5 @@ if __name__ == '__main__':
     connection.commit()
     connection.close()
 
-    PrintProgramName('Database init finish')
+    print('\n[DATABASE INIT FINISH]')
+    PrintProgramName()
