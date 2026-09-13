@@ -20,6 +20,8 @@ Development/
 *.dylib
 *.dll
 
+Data/
+
 # Fortran module files
 *.mod
 *.smod

@@ -1,10 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#include <functional>
-#include <sqlite3.h>
-#include <filesystem>
-#include <variant>
+// #include <sqlite3.h>
 
 #include <ASYS/String/StringLiteral.hpp>
 

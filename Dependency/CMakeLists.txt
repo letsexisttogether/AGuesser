@@ -1,2 +1,2 @@
 add_subdirectory(ASYS)
-add_subdirectory(sqlite)
+add_subdirectory(ADBC)
