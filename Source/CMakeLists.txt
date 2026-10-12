@@ -1,14 +1,15 @@
-add_executable(${PROJECT_NAME}
+set(APP_NAME AGSR)
+
+add_executable(${APP_NAME}
     Main.cpp)
 
-add_subdirectory(System)
-add_subdirectory(DB)
-
-target_include_directories(${PROJECT_NAME}
+target_include_directories(${APP_NAME}
     PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
-target_link_libraries(${PROJECT_NAME}
-    PRIVATE 
+target_link_libraries(${APP_NAME}
+    PRIVATE
         ASYS::String
-        ADBC
+        sqlpp23::sqlite3
 )
+
+add_subdirectory(Application)

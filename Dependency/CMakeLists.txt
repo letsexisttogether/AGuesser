@@ -1,2 +1,2 @@
 add_subdirectory(ASYS)
-add_subdirectory(ADBC)
+add_subdirectory(sqlpp23)
