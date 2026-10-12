@@ -2,6 +2,10 @@ import sqlite3
 from pathlib import Path
 from typing import List, Any, Union
 
+import sqlite3
+from pathlib import Path
+from typing import List, Any, Union
+
 class SQLiteProvider:
     def __init__(self, dbPath: Union[str, Path], appTag: str = 'Install'):
         self.db_path = Path(dbPath)
@@ -45,10 +49,6 @@ class SQLiteProvider:
         self._log(f'TABLE (DROP): {tableName}')
         self.cursor.execute(f'DROP TABLE IF EXISTS {tableName};')
 
-    def recreate_table(self, tableName: str, schemaSql: str):
-        self.drop_table(tableName)
-        self.create_table(tableName, schemaSql)
-
     def insert_into_table(self, tableName: str, columns: List[str], values: List[List[Any]]):
         if not columns:
             raise RuntimeError('[AGSR::Error] Empty columns')
@@ -64,70 +64,28 @@ class SQLiteProvider:
         self._log(f'Inserting {len(values)} row(s) into {tableName}')
 
         self.cursor.executemany(sql, values)
+    
+    def execute_sql_file(self, filePath: Union[str, Path]):
+        scriptPath = Path(filePath)
+        if not scriptPath.exists():
+            raise FileNotFoundError(f'[AGSR::Error] SQL file not found: {scriptPath}')
+
+        self._log(f'Executing SQL file: {scriptPath.name}')
+        sqlContent = scriptPath.read_text(encoding='utf-8')
+        self.cursor.executescript(sqlContent)
 
 
-DATA_DIR = Path('Data')
+SCRIPT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = SCRIPT_DIR.parent
+
+DATA_DIR = ROOT_DIR / 'Data'
 DB_NAME = DATA_DIR / 'AGuesserData.db'
+
+INSTALL_DIR = SCRIPT_DIR
+ROYAL_INSTALL_DIR = INSTALL_DIR / 'Royal'
 
 
 if __name__ == '__main__':
     with SQLiteProvider(DB_NAME, appTag='Install') as db:
-        print('[CREATING TABLES]')
-        db.recreate_table('Users', '''
-            CREATE TABLE Users
-            (
-                ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                Name TEXT NOT NULL,
-                Email TEXT NOT NULL
-            );
-        ''')
-        db.recreate_table('Champions', '''
-            CREATE TABLE Champions
-            (
-                ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                Name TEXT NOT NULL
-            );
-        ''')
-        db.recreate_table('ChampionTrait', '''
-            CREATE TABLE ChampionsTraits
-            (
-                ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                NumberValue INTEGER NOT NULL,
-                StringValue TEXT DEFAULT '',
-                IsComparable INTEGER NOT NULL DEFAULT 0
-            );
-        ''')
-        db.recreate_table('ChampionTraits', '''
-            CREATE TABLE ChampionsTraits
-            (
-                ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                ChampionID INTEGER NOT NULL,
-                ElixirID INTEGER NOT NULL,
-                RarityID INTEGER NOT NULL,
-                TargetsID INTEGER NOT NULL,
-                RangeTypeID INTEGER NOT NULL,
-                AttackSpeedID INTEGER NOT NULL,
-                SpeedID INTEGER NOT NULL,
-                ReleaseDateID INTEGER NOT NULL
-            );
-        ''')
-
-        print('\n[INSERTING DATA]')
-        db.insert_into_table(
-            tableName='Users',
-            columns=['Name', 'Email'],
-            values=[
-                ['Alex', 'letmeexist95@gmail.com'],
-                ['Someone', 'SomeEmail@gmail.com'],
-                ['EndRow', 'EndRowEmail@gmail.com']
-            ]
-        )
-        db.insert_into_table(
-            tableName='Users',
-            columns=['Name', 'Email'],
-            values=[
-                ['Alex', 'letmeexist95@gmail.com'],
-                ['Someone', 'SomeEmail@gmail.com'],
-                ['EndRow', 'EndRowEmail@gmail.com']
-            ]
-        )
+        db.execute_sql_file(ROYAL_INSTALL_DIR / 'CreateTable.sql')
+        db.execute_sql_file(ROYAL_INSTALL_DIR / 'InsertData.sql')
