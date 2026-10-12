@@ -13,3 +13,4 @@ target_link_libraries(${APP_NAME}
 )
 
 add_subdirectory(Application)
+add_subdirectory(Business)
