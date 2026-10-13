@@ -35,13 +35,13 @@ namespace AGSR
     {
         auto result = LoadRowBy<false>(name);
 
-        if (!result.has_value())
+        if (!result)
         {
             m_LastGuessedRow.Nullify();
             return false;
         }
 
-        m_LastGuessedRow = std::move(result.value());
+        m_LastGuessedRow = std::move(*result);
 
         return m_CurrentRow.Name == m_LastGuessedRow.Name;
     }
@@ -62,12 +62,12 @@ namespace AGSR
     {
         auto result = LoadRowBy<true>(ID);
 
-        if (!result.has_value())
+        if (result)
         {
             throw std::runtime_error{ "[AGSR] No card to load" };
         }
 
-        return result.value();
+        return std::move(*result);
     }
 
     template <bool _ShouldLoadByID>
