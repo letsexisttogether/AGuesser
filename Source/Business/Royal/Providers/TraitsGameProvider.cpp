@@ -72,7 +72,7 @@ namespace AGSR::Business::Royal::Providers
 
             return std::optional{ Domain::CardTrait
             {
-                .ID = static_cast<std::int32_t>(queryRow.ID),
+                .ID = static_cast<std::uint32_t>(queryRow.ID),
                 .Name = std::string{ queryRow.x },
                 .ElixirCost = static_cast<std::uint8_t>(queryRow.ElixirCost),
                 .Targets = std::string{ queryRow.Targets },

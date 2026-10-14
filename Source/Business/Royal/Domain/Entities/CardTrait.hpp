@@ -28,7 +28,7 @@ namespace AGSR::Business::Royal::Domain
     */
     struct CardTrait
     {
-        std::int32_t ID{};
+        std::uint32_t ID{};
         std::string Name{};
         std::uint8_t ElixirCost{};
         std::string Targets{};
