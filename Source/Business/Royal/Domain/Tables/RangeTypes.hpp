@@ -4,9 +4,9 @@
 
 #include <sqlpp23/sqlpp23.h>
 
-namespace AGSR::Model
+namespace AGSR::Royal::Tables
 {
-    struct Speeds_
+    struct RangeTypes_
     {
         struct ID
         {
@@ -26,7 +26,7 @@ namespace AGSR::Model
             using data_type = sqlpp::integral;
         };
 
-        SQLPP_CREATE_NAME_TAG_FOR_SQL_AND_CPP(Speeds, Speeds);
+        SQLPP_CREATE_NAME_TAG_FOR_SQL_AND_CPP(RangeTypes, RangeTypes);
 
         template <class _Table>
         using _table_columns = sqlpp::table_columns
@@ -34,5 +34,5 @@ namespace AGSR::Model
         using _required_insert_columns = sqlpp::detail::type_set<>;
   };
 
-  using Speeds = ::sqlpp::table_t<Speeds_>;
+  using RangeTypes = ::sqlpp::table_t<RangeTypes_>;
 }

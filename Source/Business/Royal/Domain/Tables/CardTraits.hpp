@@ -4,7 +4,7 @@
 
 #include <sqlpp23/sqlpp23.h>
 
-namespace AGSR::Model
+namespace AGSR::Royal::Tables
 {
     struct CardTraits_
     {

@@ -4,9 +4,9 @@
 
 #include <sqlpp23/sqlpp23.h>
 
-namespace AGSR::Model
+namespace AGSR::Royal::Tables
 {
-    struct RangeTypes_
+    struct Cards_
     {
         struct ID
         {
@@ -20,19 +20,13 @@ namespace AGSR::Model
             using data_type = sqlpp::text;
         };
 
-        struct Rank
-        {
-            SQLPP_CREATE_NAME_TAG_FOR_SQL_AND_CPP(Rank, Rank);
-            using data_type = sqlpp::integral;
-        };
-
-        SQLPP_CREATE_NAME_TAG_FOR_SQL_AND_CPP(RangeTypes, RangeTypes);
+        SQLPP_CREATE_NAME_TAG_FOR_SQL_AND_CPP(Cards, Cards);
 
         template <class _Table>
         using _table_columns = sqlpp::table_columns
-            <_Table, ID, Name, Rank>;
+            <_Table, ID, Name>;
         using _required_insert_columns = sqlpp::detail::type_set<>;
   };
 
-  using RangeTypes = ::sqlpp::table_t<RangeTypes_>;
+  using Cards = ::sqlpp::table_t<Cards_>;
 }
