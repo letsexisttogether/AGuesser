@@ -1,4 +1,5 @@
 #include "Application.hpp"
+#include "Application/Royal/TraitsGameSession.hpp"
 
 #include <iostream>
 #include <cstdlib>
@@ -11,22 +12,24 @@ namespace
     auto GetConnection() -> sqlpp::sqlite3::connection;
 };
 
-namespace AGSR 
+namespace AGSR::Application
 {
-    auto Application::GetApplication() -> Application&
+    auto App::GetApplication() -> App&
     {
-        static auto app = Application{};
+        static auto app = App{};
 
         return app;
     }
 
-    auto Application::Execute() -> std::int32_t
+    auto App::Execute() -> std::int32_t
     {
         try
         {
             auto db = GetConnection();
+
+            auto session = Royal::Sessions::TraitsGameSession{ db };
             
-            while (true)
+            while (!session.IsOver())
             {
                 std::cout << "Enter name: ";
 
@@ -34,6 +37,8 @@ namespace AGSR
                 std::cin >> name;
 
                 std::cout << '\n';
+
+                session.ProcessGuess(name);
             }
         }
         catch (const std::exception& exp)

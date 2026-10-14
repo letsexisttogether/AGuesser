@@ -11,36 +11,28 @@ using namespace sqlpp::alias;
 
 namespace AGSR::Business::Royal::Providers
 {
-    TraitsGameProviders::TraitsGameProviders(DatabaseConnection& connection)
+    TraitsGameProvider::TraitsGameProvider(DatabaseConnection& connection)
         noexcept : m_DatabaseConnection{ connection } {};
 
-
-    auto TraitsGameProviders::GetRandomHero() -> Domain::CardTrait
+    auto TraitsGameProvider::GetRandomHeroID() -> std::uint32_t
     {
-        auto cardTrait = GetCardTrait(1);
-
-        if (!cardTrait)
-        {
-            throw std::runtime_error{ "[AGSR::Error] No card to load" };
-        }
-
-        return std::move(cardTrait.value());
+        return 1;
     }
 
-    auto TraitsGameProviders::GetCardTrait(const std::int32_t ID)
-        -> TraitsGameProviders::CardTraitResult
+    auto TraitsGameProvider::GetCardTrait(const std::int32_t ID)
+        -> TraitsGameProvider::CardTraitResult
     {
         return GetCardTraitShared<true>(ID);
     }
 
-    auto TraitsGameProviders::GetcardTrait(const std::string& name)
-        -> TraitsGameProviders::CardTraitResult
+    auto TraitsGameProvider::GetCardTrait(const std::string& name)
+        -> TraitsGameProvider::CardTraitResult
     {
         return GetCardTraitShared<false>(name);
     }
 
     template <bool _ShouldGetByID>
-    auto TraitsGameProviders::GetCardTraitShared(const std::conditional_t
+    auto TraitsGameProvider::GetCardTraitShared(const std::conditional_t
         <_ShouldGetByID, const std::int32_t, const std::string&> param)
         -> CardTraitResult
     {

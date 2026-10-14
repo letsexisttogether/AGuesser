@@ -10,23 +10,23 @@
 
 namespace AGSR::Business::Royal::Providers
 {
-    class TraitsGameProviders
+    class TraitsGameProvider
     {
     public:
         using DatabaseConnection = sqlpp::sqlite3::connection;
         using CardTraitResult = std::optional<Domain::CardTrait>;
 
     public:
-        TraitsGameProviders(DatabaseConnection& connection) noexcept;
-        TraitsGameProviders(const TraitsGameProviders&) = delete;
+        TraitsGameProvider(DatabaseConnection& connection) noexcept;
+        TraitsGameProvider(const TraitsGameProvider&) = delete;
 
-        auto GetRandomHero() -> Domain::CardTrait;
+        auto GetRandomHeroID() -> std::uint32_t;
 
         auto GetCardTrait(const std::int32_t ID) -> CardTraitResult;
-        auto GetcardTrait(const std::string& name) -> CardTraitResult;
+        auto GetCardTrait(const std::string& name) -> CardTraitResult;
 
-        auto operator = (const TraitsGameProviders&)
-            -> TraitsGameProviders& = delete;
+        auto operator = (const TraitsGameProvider&)
+            -> TraitsGameProvider& = delete;
 
     private:
         template <bool _ShouldGetByID>

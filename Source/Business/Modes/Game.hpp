@@ -6,8 +6,10 @@ namespace AGSR::Business::Modes
     class Game
     {
     public:
-        Game(const _Target& target);
+        Game() = default;
         Game(const Game&) = delete;
+
+        Game(const _Target& target);
         /**
         * @brief Checks if the hero's guessed
         * @details Just pure in here
@@ -19,7 +21,7 @@ namespace AGSR::Business::Modes
         auto operator = (const Game&) -> Game& = delete;
 
     private:
-        _Target m_Target;
+        _Target m_Target{};
     };
 
     template <class _Target>

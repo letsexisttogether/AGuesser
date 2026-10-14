@@ -2,7 +2,7 @@
 
 auto main() -> std::int32_t
 {
-    auto& app = AGSR::Application::GetApplication();
+    auto& app = AGSR::Application::App::GetApplication();
 
     return app.Execute();
 }

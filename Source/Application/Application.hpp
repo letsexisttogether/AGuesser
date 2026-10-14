@@ -2,24 +2,24 @@
 
 #include <cstdint>
 
-namespace AGSR
+namespace AGSR::Application
 {
-    class Application
+    class App
     {
     public:
         /**
         * @brief Returns globally shared Application instance
         * @details Initializes the instance at first call
         */
-        static auto GetApplication() -> Application&;
+        static auto GetApplication() -> App&;
 
     public:
         auto Execute() -> std::int32_t;
 
     private:
-        Application() = default;
+        App() = default;
 
-        Application(const Application&) = delete;
-        auto operator = (const Application&) -> Application& = delete;
+        App(const App&) = delete;
+        auto operator = (const App&) -> App& = delete;
     };
 };
