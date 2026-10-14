@@ -4,7 +4,7 @@
 
 #include <sqlpp23/sqlpp23.h>
 
-namespace AGSR::Royal::Tables
+namespace AGSR::Business::Royal::Domain
 {
     struct Cards_
     {
