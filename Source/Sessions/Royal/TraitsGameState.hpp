@@ -28,5 +28,6 @@ namespace AGSR::Sessions::Royal
         TraitGuess<std::string_view> Rarity{};
         TraitGuess<std::string_view> Range{};
         TraitGuess<std::string_view> Speed{};
+        bool IsVictory{};
     };
 };

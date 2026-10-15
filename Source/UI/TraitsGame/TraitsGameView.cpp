@@ -24,6 +24,11 @@ namespace AGSR::UI::Views::Royal
         DisplayGuessedTrait(state.Rarity, separator);
         DisplayGuessedTrait(state.Range, separator);
         DisplayGuessedTrait(state.Speed, "\n");
+
+        if (state.IsVictory)
+        {
+            std::cout << "VICTORY" << '\n';
+        }
     }
 };
 

@@ -36,8 +36,7 @@ namespace AGSR
                 std::cout << "Enter name: ";
 
                 auto name = std::string{};
-                std::cin >> name;
-
+                std::getline(std::cin, name);
                 std::cout << '\n';
 
                 session.ProcessGuess(name);

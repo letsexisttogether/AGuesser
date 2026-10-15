@@ -43,7 +43,8 @@ namespace AGSR::Sessions::Royal
             .Targets = { cardTrait.Targets }, 
             .Rarity = { cardTrait.Rarity.Name },
             .Range = { cardTrait.Range.Name },
-            .Speed = { cardTrait.Speed.Name }
+            .Speed = { cardTrait.Speed.Name },
+            .IsVictory = isGuessCorrect
         };
 
         UI::Views::Royal::TraitsGameView::Display(state);
