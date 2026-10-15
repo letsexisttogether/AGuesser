@@ -5,6 +5,7 @@
 
 #include <sqlpp23/core/clause/select.h>
 
+#include "System/Random/Random.hpp"
 #include "Business/Royal/Domain/Entities/CardTrait.hpp"
 
 using namespace sqlpp::alias;
@@ -16,7 +17,24 @@ namespace AGSR::Business::Royal::Providers
 
     auto TraitsGameProvider::GetRandomHeroID() -> std::uint32_t
     {
-        return 1;
+        const auto query = select(m_Cards.ID)
+            .from(m_Cards);
+
+        auto queryResult = m_DatabaseConnection(query);
+
+        if (queryResult.empty())
+        {
+            throw std::runtime_error{ "[AGSR::Error] No IDs in DB" };
+        }
+
+        auto IDs = std::vector<std::uint32_t>{};
+
+        for (const auto& row : queryResult)
+        {
+            IDs.push_back(static_cast<std::uint32_t>(row.ID));
+        }
+
+        return System::GetRandomElement(IDs, 1200);
     }
 
     auto TraitsGameProvider::GetCardTrait(const std::int32_t ID)

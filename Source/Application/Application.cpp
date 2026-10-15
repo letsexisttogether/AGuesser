@@ -29,6 +29,7 @@ namespace AGSR
             auto db = GetConnection();
 
             auto session = Sessions::Royal::TraitsGameSession{ db };
+            session.Start();
             
             while (!session.IsOver())
             {
@@ -53,6 +54,23 @@ namespace AGSR
         return EXIT_SUCCESS;
     }
 
+    auto Application::GetLogger() -> System::Logger&
+    {
+        return m_Logger;
+    }
+
+    Application::Application() noexcept
+    {
+        try
+        {
+            m_Logger.Init("Log/Logger.txt");
+            m_Logger.Log("Init successfull");
+        }
+        catch (std::exception& exp)
+        {
+            std::cerr << "[AGSR::Init] Failed" << std::endl;
+        }
+    }
 };
 
 namespace

@@ -1,16 +1,25 @@
 #include "TraitsGameSession.hpp"
 
+#include "Application/Application.hpp"
 #include "UI/TraitsGame/TraitsGameView.hpp"
 
 namespace AGSR::Sessions::Royal
 {
     TraitsGameSession::TraitsGameSession(DatabaseConnection& connection)
         : m_DatabaseConnection{ connection }
+    {}
+
+    auto TraitsGameSession::Start() -> void
     {
         const auto ID = m_Provider.GetRandomHeroID();
 
         m_Game.SetTarget(ID);
         m_Target = std::move(*m_Provider.GetCardTrait(ID));
+
+        Application::GetApplication().GetLogger()
+            .Log("Random hero: ", m_Target.Name, static_cast<std::uint16_t>
+            (m_Target.ElixirCost), m_Target.Targets, m_Target.Range.Name,
+            m_Target.Range.Name, m_Target.Speed.Name);
     }
 
     auto TraitsGameSession::ProcessGuess(const std::string& name) -> void
@@ -37,7 +46,7 @@ namespace AGSR::Sessions::Royal
             .Speed = { cardTrait.Speed.Name }
         };
 
-        UI::Royal::Views::TraitsGameView::Display(state);
+        UI::Views::Royal::TraitsGameView::Display(state);
     }
 
     auto TraitsGameSession::IsOver() const noexcept -> bool

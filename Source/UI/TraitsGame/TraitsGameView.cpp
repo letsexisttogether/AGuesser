@@ -12,7 +12,7 @@ namespace
         const char* const separator) -> void;
 };
 
-namespace AGSR::UI::Royal::Views
+namespace AGSR::UI::Views::Royal
 {
     auto TraitsGameView::Display(const State& state) -> void
     {

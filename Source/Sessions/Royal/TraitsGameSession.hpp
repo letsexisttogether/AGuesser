@@ -15,6 +15,8 @@ namespace AGSR::Sessions::Royal
     public:
         TraitsGameSession(DatabaseConnection& connection);
 
+        auto Start() -> void;
+
         auto ProcessGuess(const std::string& name) -> void;
 
         auto IsOver() const noexcept -> bool;

@@ -2,7 +2,7 @@
 
 #include "Sessions/Royal/TraitsGameState.hpp"
 
-namespace AGSR::UI::Royal::Views
+namespace AGSR::UI::Views::Royal
 {
     class TraitsGameView final
     {

@@ -15,4 +15,5 @@ target_link_libraries(${APP_NAME}
 add_subdirectory(Application)
 add_subdirectory(Business)
 add_subdirectory(Sessions)
+add_subdirectory(System)
 add_subdirectory(UI)
