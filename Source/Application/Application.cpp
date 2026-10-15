@@ -1,5 +1,4 @@
 #include "Application.hpp"
-#include "Application/Royal/TraitsGameSession.hpp"
 
 #include <iostream>
 #include <cstdlib>
@@ -7,27 +6,29 @@
 
 #include <sqlpp23/sqlite3/sqlite3.h>
 
+#include "Sessions/Royal/TraitsGameSession.hpp"
+
 namespace
 {
     auto GetConnection() -> sqlpp::sqlite3::connection;
 };
 
-namespace AGSR::Application
+namespace AGSR
 {
-    auto App::GetApplication() -> App&
+    auto Application::GetApplication() -> Application&
     {
-        static auto app = App{};
+        static auto app = Application{};
 
         return app;
     }
 
-    auto App::Execute() -> std::int32_t
+    auto Application::Execute() -> std::int32_t
     {
         try
         {
             auto db = GetConnection();
 
-            auto session = Royal::Sessions::TraitsGameSession{ db };
+            auto session = Sessions::Royal::TraitsGameSession{ db };
             
             while (!session.IsOver())
             {

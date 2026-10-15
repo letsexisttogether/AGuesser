@@ -5,8 +5,7 @@
 namespace
 {
     template <class _Type>
-    using TraitGuess = AGSR::Application::Royal::
-        Sessions::TraitGuess<_Type>;
+    using TraitGuess = AGSR::Sessions::Royal::TraitGuess<_Type>;
 
     template <class _Type>
     auto DisplayGuessedTrait(const TraitGuess<_Type>& guess,
@@ -34,8 +33,7 @@ namespace
     auto DisplayGuessedTrait(const TraitGuess<_Type>& guess,
         const char* const separator) -> void
     {
-        using GuessState = AGSR::Application::Royal::
-            Sessions::TraitGuessState;
+        using GuessState = AGSR::Sessions::Royal::TraitGuessState;
 
         auto compareSymbol = ' ';
 

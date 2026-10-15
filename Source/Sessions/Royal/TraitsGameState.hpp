@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <string_view>
 
-namespace AGSR::Application::Royal::Sessions
+namespace AGSR::Sessions::Royal
 {
     enum class TraitGuessState : std::uint8_t
     {

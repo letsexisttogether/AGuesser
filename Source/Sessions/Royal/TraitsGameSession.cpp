@@ -2,7 +2,7 @@
 
 #include "UI/TraitsGame/TraitsGameView.hpp"
 
-namespace AGSR::Application::Royal::Sessions
+namespace AGSR::Sessions::Royal
 {
     TraitsGameSession::TraitsGameSession(DatabaseConnection& connection)
         : m_DatabaseConnection{ connection }

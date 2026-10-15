@@ -4,7 +4,7 @@
 #include "Business/Royal/Providers/TraitsGameProvider.hpp"
 #include "TraitsGameState.hpp"
 
-namespace AGSR::Application::Royal::Sessions
+namespace AGSR::Sessions::Royal
 {
     class TraitsGameSession
     {
