@@ -1,1 +1,1 @@
-add_subdirectory(Log)
+add_subdirectory(Logger)

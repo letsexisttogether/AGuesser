@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-#include "System/Log/Logger.hpp"
+#include "System/Logger/Logger.hpp"
 
 namespace AGSR
 {
