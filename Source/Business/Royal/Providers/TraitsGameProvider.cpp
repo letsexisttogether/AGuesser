@@ -34,7 +34,7 @@ namespace AGSR::Business::Royal::Providers
             IDs.push_back(static_cast<std::uint32_t>(row.ID));
         }
 
-        return System::GetRandomElement(IDs, 1200);
+        return System::GetRandomElement(IDs);
     }
 
     auto TraitsGameProvider::GetCardTrait(const std::int32_t ID)
@@ -60,7 +60,8 @@ namespace AGSR::Business::Royal::Providers
                 m_CardTraits.ElixirCost, m_CardTraits.Targets,
                 m_Rarities.Name.as(::y), m_Rarities.Rank.as(::z),
                 m_RangeTypes.Name.as(::a), m_RangeTypes.Rank.as(::b),
-                m_Speeds.Name.as(::c), m_Speeds.Rank.as(::d)
+                m_Speeds.Name.as(::c), m_Speeds.Rank.as(::d),
+                m_CardTraits.ReleaseYear
             )
             .from(m_Cards
             .join(m_CardTraits).on(m_Cards.ID == m_CardTraits.CardID)
@@ -84,7 +85,7 @@ namespace AGSR::Business::Royal::Providers
             {
                 .ID = static_cast<std::uint32_t>(queryRow.ID),
                 .Name = std::string{ queryRow.x },
-                .ElixirCost = static_cast<std::uint8_t>(queryRow.ElixirCost),
+                .ElixirCost = static_cast<std::uint16_t>(queryRow.ElixirCost),
                 .Targets = std::string{ queryRow.Targets },
                 .Rarity = 
                 {
@@ -100,7 +101,9 @@ namespace AGSR::Business::Royal::Providers
                 {
                     .Name = std::string{ queryRow.c },
                     .Rank = static_cast<std::uint8_t>(queryRow.d)
-                }
+                },
+                .ReleaseYear = static_cast<std::uint16_t>
+                    (queryRow.ReleaseYear)
             }};
         };
 

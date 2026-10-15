@@ -27,4 +27,13 @@ namespace AGSR::System
 
         return elements[index];
     }
+
+    template <class _Type>
+    auto GetRandomElement(const std::vector<_Type>& elements)
+        noexcept -> _Type
+    {
+        auto device = std::random_device{};
+
+        return GetRandomElement(elements, device());
+    }
 };

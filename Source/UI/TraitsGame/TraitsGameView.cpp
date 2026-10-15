@@ -16,14 +16,18 @@ namespace AGSR::UI::Views::Royal
 {
     auto TraitsGameView::Display(const State& state) -> void
     {
+        std::cout << "NAME | COST | TARGETS | RARITY | RANGE | SPEED \n";
+
         constexpr auto separator = " | ";
+        constexpr auto end = "\n\n";
 
         std::cout << state.Name << separator;
         DisplayGuessedTrait(state.ElixirCost, separator);
         DisplayGuessedTrait(state.Targets, separator);
         DisplayGuessedTrait(state.Rarity, separator);
         DisplayGuessedTrait(state.Range, separator);
-        DisplayGuessedTrait(state.Speed, "\n");
+        DisplayGuessedTrait(state.Speed, separator);
+        DisplayGuessedTrait(state.ReleaseYear, end);
 
         if (state.IsVictory)
         {
