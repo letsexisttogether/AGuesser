@@ -16,9 +16,10 @@ namespace AGSR::UI::Views::Royal
 {
     auto TraitsGameView::Display(const State& state) -> void
     {
-        std::cout << "NAME | COST | TARGETS | RARITY | RANGE | SPEED \n";
+        std::cout << "NAME\t| COST\t| TARGETS\t| "
+            "RARITY\t| RANGE\t\t| SPEED\t\t| YEAR\n";
 
-        constexpr auto separator = " | ";
+        constexpr auto separator = "\t| ";
         constexpr auto end = "\n\n";
 
         std::cout << state.Name << separator;

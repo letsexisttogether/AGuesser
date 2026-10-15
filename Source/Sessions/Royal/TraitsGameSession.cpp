@@ -57,16 +57,19 @@ namespace AGSR::Sessions::Royal
             {
                 return CompareRanks(targetTrait.Rank, guessedTrait.Rank);
             }
-            else if (requires { targetTrait < guessedTrait; })
-            {
-                return CompareRanks(targetTrait, guessedTrait);
-            }
-            else
+            else if (std::is_same_v<std::remove_cvref_t<decltype
+                    (targetTrait)>, std::string>)
             {
                 return ((targetTrait == guessedTrait) ?
                     (TraitGuessState::Correct) 
                     : (TraitGuessState::Incorrent));
             }
+            else if (requires { targetTrait < guessedTrait; })
+            {
+                return CompareRanks(targetTrait, guessedTrait);
+            }
+
+            return TraitGuessState::Incorrent;
         };
 
         const auto state = TraitsGameState
