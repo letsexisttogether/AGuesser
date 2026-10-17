@@ -24,8 +24,9 @@ namespace AGSR::Sessions::Royal
     {
         std::string_view Name{};
         TraitGuess<std::uint16_t> ElixirCost{};
-        TraitGuess<std::string_view> Targets{};
         TraitGuess<std::string_view> Rarity{};
+        TraitGuess<std::string_view> CardType{};
+        TraitGuess<std::string_view> Targets{};
         TraitGuess<std::string_view> Range{};
         TraitGuess<std::string_view> Speed{};
         TraitGuess<std::uint16_t> ReleaseYear{};

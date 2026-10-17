@@ -18,8 +18,9 @@ namespace AGSR::Sessions::Royal
 
         Application::GetApplication().GetLogger()
             .Log("Random hero: ", m_Target.Name, static_cast<std::uint16_t>
-            (m_Target.ElixirCost), m_Target.Targets, m_Target.Range.Name,
-            m_Target.Range.Name, m_Target.Speed.Name);
+            (m_Target.ElixirCost), m_Target.CardType, m_Target.Rarity.Name,
+            m_Target.Targets, m_Target.Range.Name, m_Target.Range.Name,
+            m_Target.Speed.Name, m_Target.ReleaseYear);
     }
 
     auto TraitsGameSession::ProcessGuess(const std::string& name) -> void
@@ -80,16 +81,21 @@ namespace AGSR::Sessions::Royal
                 cardTrait.ElixirCost,
                 CompareTrait(m_Target.ElixirCost, cardTrait.ElixirCost)
             },
-            .Targets =
-            {
-                cardTrait.Targets,
-                CompareTrait(m_Target.Targets, cardTrait.Targets)
-            }, 
             .Rarity = 
             { 
                 cardTrait.Rarity.Name,
                 CompareTrait(m_Target.Rarity, cardTrait.Rarity)
             },
+            .CardType = 
+            { 
+                cardTrait.CardType,
+                CompareTrait(m_Target.CardType, cardTrait.CardType)
+            },
+            .Targets =
+            {
+                cardTrait.Targets,
+                CompareTrait(m_Target.Targets, cardTrait.Targets)
+            }, 
             .Range = 
             { 
                 cardTrait.Range.Name,

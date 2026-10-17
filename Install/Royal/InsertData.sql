@@ -157,1092 +157,1198 @@ INSERT INTO Cards (Name) VALUES
 DELETE FROM CardTraits;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Archer Queen'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Champion'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2021;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Archers'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Arrows'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Spell',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Baby Dragon'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Medium'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2016;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Balloon'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Bandit'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2017;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Barbarian Barrel'),
     2,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Spell',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2018;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Barbarian Hut'),
     6,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Building',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Barbarians'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Bats'),
     2,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'VeryFast'),
     2017;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Battle Healer'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2020;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Battle Ram'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2017;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Berserker'),
     2,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2025;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Bomber'),
     2,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Medium'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Bomb Tower'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Building',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Boss Bandit'),
     6,
     (SELECT ID FROM Rarities WHERE Name = 'Champion'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2025;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Bowler'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Medium'),
     (SELECT ID FROM Speeds WHERE Name = 'Slow'),
     2016;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Cannon'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Building',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Cannon Cart'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2017;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Clone'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Spell',
     'Friendly Troops',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Dark Prince'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Dart Goblin'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'VeryFast'),
     2017;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Earthquake'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Spell',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2019;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Electro Dragon'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Medium'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2018;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Electro Giant'),
     7,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Slow'),
     2020;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Electro Spirit'),
     1,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Short'),
     (SELECT ID FROM Speeds WHERE Name = 'VeryFast'),
     2020;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Electro Wizard'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2016;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Elite Barbarians'),
     6,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2016;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Elixir Collector'),
     6,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Building',
     '-',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Elixir Golem'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Slow'),
     2019;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Executioner'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Medium'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2017;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Fire Spirit'),
     1,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Short'),
     (SELECT ID FROM Speeds WHERE Name = 'VeryFast'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Fireball'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Spell',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Firecracker'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2020;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Fisherman'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2019;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Flying Machine'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2017;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Freeze'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Spell',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Furnace'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2025;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Giant'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Slow'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Giant Skeleton'),
     6,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Giant Snowball'),
     2,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Spell',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2018;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Goblin Barrel'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Spell',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Goblin Cage'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Building',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2019;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Goblin Curse'),
     2,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Spell',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2024;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Goblin Demolisher'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2024;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Goblin Drill'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Building',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2021;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Goblin Gang'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'VeryFast'),
     2017;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Goblin Giant'),
     6,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2018;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Goblin Hut'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Building',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Goblin Machine'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2024;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Goblins'),
     2,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'VeryFast'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Goblinstein'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Champion'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2024;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Golden Knight'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Champion'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2021;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Golem'),
     8,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Slow'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Graveyard'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Spell',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Guards'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Heal Spirit'),
     1,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Short'),
     (SELECT ID FROM Speeds WHERE Name = 'VeryFast'),
     2020;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Hog Rider'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'VeryFast'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Hunter'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Medium'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2017;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Ice Golem'),
     2,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Slow'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Ice Spirit'),
     1,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Short'),
     (SELECT ID FROM Speeds WHERE Name = 'VeryFast'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Ice Wizard'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Inferno Dragon'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Medium'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Inferno Tower'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Building',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Knight'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Lava Hound'),
     7,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Medium'),
     (SELECT ID FROM Speeds WHERE Name = 'Slow'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Lightning'),
     6,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Spell',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Little Prince'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Champion'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2023;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Lumberjack'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'VeryFast'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Magic Archer'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2018;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Mega Knight'),
     7,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2017;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Mega Minion'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Mighty Miner'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Champion'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2022;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Miner'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Mini P.E.K.K.A.'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Minion Horde'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Minions'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Mirror'),
     1,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Spell',
     '-',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Monk'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Champion'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2022;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Mortar'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Building',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Mother Witch'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2020;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Musketeer'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Night Witch'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2017;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'P.E.K.K.A.'),
     7,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Slow'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Phoenix'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2022;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Poison'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Spell',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Prince'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Princess'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Rage'),
     2,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Spell',
     'Friendly Troops',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Ram Rider'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2018;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Rascals'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2018;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Rocket'),
     6,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Spell',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
 INSERT INTO CardTraits
-    (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+    (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Ronin'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2026;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Royal Delivery'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Spell',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2020;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Royal Ghost'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2018;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Royal Giant'),
     6,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Slow'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Royal Hogs'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'VeryFast'),
     2018;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Royal Recruits'),
     7,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2017;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Rune Giant'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2025;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Skeleton Army'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Skeleton Barrel'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2017;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Skeleton Dragons'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Medium'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2020;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Skeleton King'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Champion'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2021;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Skeletons'),
     1,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Fast'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Sparky'),
     6,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Slow'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Spear Goblins'),
     2,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'VeryFast'),
@@ -1250,161 +1356,177 @@ SELECT
 
 -- Spirit Empress has two forms.
 -- This row represents Air Form: 6 Elixir / Air & Ground / range 5 / Medium.
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Spirit Empress'),
     6,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2025;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Suspicious Bush'),
     2,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2024;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Tesla'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Building',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'The Log'),
     2,
     (SELECT ID FROM Rarities WHERE Name = 'Legendary'),
+    'Spell',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Three Musketeers'),
     9,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Tombstone'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Building',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Tornado'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Spell',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Valkyrie'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Vines'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Spell',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2025;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Void'),
     3,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Spell',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2024;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Wall Breakers'),
     2,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Buildings',
     (SELECT ID FROM RangeTypes WHERE Name = 'Melee'),
     (SELECT ID FROM Speeds WHERE Name = 'VeryFast'),
     2019;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Witch'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Wizard'),
     5,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'X-Bow'),
     6,
     (SELECT ID FROM Rarities WHERE Name = 'Epic'),
+    'Building',
     'Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Zap'),
     2,
     (SELECT ID FROM Rarities WHERE Name = 'Common'),
+    'Spell',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = '-'),
     (SELECT ID FROM Speeds WHERE Name = '-'),
     2016;
 
-INSERT INTO CardTraits (CardID, ElixirCost, RarityID, Targets, RangeTypeID, SpeedID, ReleaseYear)
+INSERT INTO CardTraits (CardID, ElixirCost, RarityID, CardType, Targets, RangeTypeID, SpeedID, ReleaseYear)
 SELECT
     (SELECT ID FROM Cards WHERE Name = 'Zappies'),
     4,
     (SELECT ID FROM Rarities WHERE Name = 'Rare'),
+    'Troop',
     'Air & Ground',
     (SELECT ID FROM RangeTypes WHERE Name = 'Long'),
     (SELECT ID FROM Speeds WHERE Name = 'Medium'),

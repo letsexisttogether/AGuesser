@@ -32,6 +32,12 @@ namespace AGSR::Business::Royal::Domain
             using data_type = sqlpp::integral;
         };
 
+        struct CardType
+        {
+            SQLPP_CREATE_NAME_TAG_FOR_SQL_AND_CPP(CardType, CardType);
+            using data_type = sqlpp::text;
+        };
+
         struct Targets 
         {
             SQLPP_CREATE_NAME_TAG_FOR_SQL_AND_CPP(Targets, Targets);
@@ -60,8 +66,8 @@ namespace AGSR::Business::Royal::Domain
 
         template <class _Table>
         using _table_columns = sqlpp::table_columns
-            <_Table, ID, CardID, ElixirCost, RarityID, Targets,
-            RangeTypeID, SpeedID, ReleaseYear>;
+            <_Table, ID, CardID, ElixirCost, RarityID, CardType,
+            Targets, RangeTypeID, SpeedID, ReleaseYear>;
         using _required_insert_columns = sqlpp::detail::type_set<>;
   };
 

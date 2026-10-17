@@ -56,8 +56,8 @@ namespace AGSR::Business::Royal::Providers
     {
         const auto query = select
             (
-                m_Cards.ID, m_Cards.Name.as(::x),
-                m_CardTraits.ElixirCost, m_CardTraits.Targets,
+                m_Cards.ID, m_Cards.Name.as(::x), m_CardTraits.ElixirCost,
+                m_CardTraits.Targets, m_CardTraits.CardType,
                 m_Rarities.Name.as(::y), m_Rarities.Rank.as(::z),
                 m_RangeTypes.Name.as(::a), m_RangeTypes.Rank.as(::b),
                 m_Speeds.Name.as(::c), m_Speeds.Rank.as(::d),
@@ -86,12 +86,13 @@ namespace AGSR::Business::Royal::Providers
                 .ID = static_cast<std::uint32_t>(queryRow.ID),
                 .Name = std::string{ queryRow.x },
                 .ElixirCost = static_cast<std::uint16_t>(queryRow.ElixirCost),
-                .Targets = std::string{ queryRow.Targets },
                 .Rarity = 
                 {
                     .Name = std::string{ queryRow.y },
                     .Rank = static_cast<std::uint8_t>(queryRow.z)
                 },
+                .CardType = std::string{ queryRow.CardType }, 
+                .Targets = std::string{ queryRow.Targets },
                 .Range = 
                 {
                     .Name = std::string{ queryRow.a },
