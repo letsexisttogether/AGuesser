@@ -10,6 +10,7 @@ namespace AGSR::UI::Views::Royal
         using State = Business::Modes::Traits::Result;
 
     public:
+        static auto GetInput(const std::string& message) -> std::string;
         static auto Display(const State& state) -> void; 
     };
 };

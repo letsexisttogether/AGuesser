@@ -15,7 +15,8 @@ namespace AGSR::Sessions::Royal
 
         auto Start() -> void;
 
-        auto ProcessGuess(const std::string& name) -> void;
+        auto ProcessGuess(const std::string& name) 
+            -> std::optional<Business::Modes::Traits::Result>;
 
         auto IsOver() const noexcept -> bool;
         

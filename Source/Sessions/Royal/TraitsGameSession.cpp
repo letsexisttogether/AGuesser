@@ -1,7 +1,6 @@
 #include "TraitsGameSession.hpp"
 
 #include "Application/Application.hpp"
-#include "UI/TraitsGame/TraitsGameView.hpp"
 
 namespace AGSR::Sessions::Royal
 {
@@ -28,24 +27,22 @@ namespace AGSR::Sessions::Royal
             cardTrait.Speed.Name, cardTrait.ReleaseYear);
 
         m_Game.Start(std::move(cardTrait));
-
     }
 
-    auto TraitsGameSession::ProcessGuess(const std::string& name) -> void
+    auto TraitsGameSession::ProcessGuess(const std::string& name)
+        -> std::optional<Business::Modes::Traits::Result>
     {
         const auto result = m_Provider.GetCardTrait(name);
 
         if (!result)
         {
-            return;
+            return std::nullopt;
         }
 
-        const auto& cardTrait = *result;
+        const auto guessResult = std::optional{ m_Game.Guess(*result) };
+        m_IsOver = guessResult->IsVictory;
 
-        const auto guessResult = m_Game.Guess(cardTrait);
-        m_IsOver = guessResult.IsVictory;
-
-        UI::Views::Royal::TraitsGameView::Display(guessResult);
+        return guessResult;
     }
 
     auto TraitsGameSession::IsOver() const noexcept -> bool

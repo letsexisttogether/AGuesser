@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Business/Modes/Game2.hpp"
+#include "Business/Modes/Game.hpp"
 #include "Business/Royal/Domain/Entities/CardTrait.hpp"
 #include "Result.hpp"
 
@@ -14,8 +14,11 @@ namespace AGSR::Business::Modes::Traits
 
     public:
         Game() = default;
+        Game(const Game&) = delete;
 
         auto Guess(const Target& target) const -> Result;
+
+        auto operator = (const Game&) -> Game& = delete;
 
     private:
         auto CompareTrait (const auto& targetTrait,

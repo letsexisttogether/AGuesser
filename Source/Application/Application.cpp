@@ -7,6 +7,7 @@
 #include <sqlpp23/sqlite3/sqlite3.h>
 
 #include "Sessions/Royal/TraitsGameSession.hpp"
+#include "UI/TraitsGame/TraitsGameView.hpp"
 
 namespace
 {
@@ -33,13 +34,16 @@ namespace AGSR
             
             while (!session.IsOver())
             {
-                std::cout << "Enter name: ";
+                // After this line every guessResult std::string_view
+                // contains dangling pointers
+                const auto guessResult = session.ProcessGuess(UI::Views::
+                    Royal::TraitsGameView::GetInput("Enter name: "));
 
-                auto name = std::string{};
-                std::getline(std::cin, name);
-                std::cout << '\n';
-
-                session.ProcessGuess(name);
+                if (guessResult)
+                {
+                    UI::Views::Royal::TraitsGameView::
+                        Display(*guessResult);
+                }
             }
         }
         catch (const std::exception& exp)

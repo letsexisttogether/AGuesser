@@ -62,6 +62,20 @@ namespace
 
 namespace AGSR::UI::Views::Royal
 {
+
+    auto TraitsGameView::GetInput(const std::string& message)
+        -> std::string
+    {
+        std::cout << message;
+
+        auto buffer = std::string{};
+
+        std::getline(std::cin, buffer);
+        std::cout << '\n';
+
+        return buffer;
+    }
+
     auto TraitsGameView::Display(const State& state) -> void
     {
         std::cout

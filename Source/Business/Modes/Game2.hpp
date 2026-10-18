@@ -14,34 +14,18 @@ namespace AGSR::Business::Modes
         Game() = default;
         Game(const Game&) = delete;
 
-        auto Start(_Target&& target);
-
-        auto Guess(const _Target& target) const -> _GuessResult; 
+        /**
+        * @brief Starts the general part of the game 
+        * @details It's defined here for now, not forever
+        */
+        auto Start(_Target&& target)
+        {
+            m_Target = std::move(target);
+        }
 
         auto operator = (const Game&) -> Game& = delete;
 
     protected:
         _Target m_Target{};
     };
-
-    #define AGSRBusinessModesGameMethod                                     \
-    template <class _Implementation, class _Target, class _GuessResult>     \
-        requires (std::is_default_constructible_v<_Target>)                 \
-    auto Game<_Implementation, _Target, _GuessResult>::                     \
-
-    AGSRBusinessModesGameMethod Start(_Target&& target)
-    {
-        m_Target = std::move(target);
-    }
-
-    AGSRBusinessModesGameMethod Guess(const _Target& target)
-        const -> _GuessResult
-    {
-        const auto& implementation = static_cast
-            <const _Implementation&>(*this);
-
-        return implementation.Guess(target);
-    }
-
-    #undef AGSRBusinessModesGameMethod
 };

@@ -1,43 +1,47 @@
-#pragma once 
+#pragma once
+
+#include <type_traits>
+#include <algorithm>
 
 namespace AGSR::Business::Modes
 {
-    template <class _Target>
+    template <class _Implementation,
+        class _Target, class _GuessResult>
+        requires (std::is_default_constructible_v<_Target>)
     class Game
     {
     public:
         Game() = default;
         Game(const Game&) = delete;
 
-        Game(const _Target& target);
-        /**
-        * @brief Checks if the hero's guessed
-        * @details Just pure in here
-        */
-        auto IsGuessCorrect(const _Target& guess) const noexcept -> bool;
+        auto Start(_Target&& target);
 
-        auto SetTarget(const _Target& target) -> void;
-        
+        auto Guess(const _Target& target) const -> _GuessResult; 
+
         auto operator = (const Game&) -> Game& = delete;
 
-    private:
+    protected:
         _Target m_Target{};
     };
 
-    template <class _Target>
-    Game<_Target>::Game(const _Target& target)
-        : m_Target{ target } {}
+    #define AGSRBusinessModesGameMethod                                     \
+    template <class _Implementation, class _Target, class _GuessResult>     \
+        requires (std::is_default_constructible_v<_Target>)                 \
+    auto Game<_Implementation, _Target, _GuessResult>::                     \
 
-    template <class _Target>
-    auto Game<_Target>::IsGuessCorrect(const _Target& guess)
-        const noexcept -> bool
+    AGSRBusinessModesGameMethod Start(_Target&& target)
     {
-        return m_Target == guess;
+        m_Target = std::move(target);
     }
 
-    template <class _Target>
-    auto Game<_Target>::SetTarget(const _Target& target) -> void
+    AGSRBusinessModesGameMethod Guess(const _Target& target)
+        const -> _GuessResult
     {
-        m_Target = target;
+        const auto& implementation = static_cast
+            <const _Implementation&>(*this);
+
+        return implementation.Guess(target);
     }
+
+    #undef AGSRBusinessModesGameMethod
 };
