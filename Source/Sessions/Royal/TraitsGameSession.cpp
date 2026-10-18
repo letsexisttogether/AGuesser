@@ -12,15 +12,22 @@ namespace AGSR::Sessions::Royal
     auto TraitsGameSession::Start() -> void
     {
         const auto ID = m_Provider.GetRandomHeroID();
+        auto cardTrait = m_Provider.GetCardTrait(ID);
 
-        m_Game.SetTarget(ID);
-        m_Target = std::move(*m_Provider.GetCardTrait(ID));
+        if (!cardTrait)
+        {
+            throw std::runtime_error{ "Can't start session" };
+        }
 
+        m_Game.Start(std::move(*cardTrait));
+
+        /*
         Application::GetApplication().GetLogger()
             .Log("Random hero: ", m_Target.Name, static_cast<std::uint16_t>
             (m_Target.ElixirCost), m_Target.CardType, m_Target.Rarity.Name,
             m_Target.Targets, m_Target.Range.Name, m_Target.Range.Name,
             m_Target.Speed.Name, m_Target.ReleaseYear);
+        */
     }
 
     auto TraitsGameSession::ProcessGuess(const std::string& name) -> void
@@ -32,89 +39,11 @@ namespace AGSR::Sessions::Royal
             return;
         }
 
-        const auto& cardTrait = result.value();
+        const auto& cardTrait = *result;
 
-        const auto isGuessCorrect = m_Game.IsGuessCorrect(cardTrait.ID);
-        m_IsOver = isGuessCorrect;
+        const auto guessResult = m_Game.Guess(cardTrait);
 
-        auto CompareTrait = [] (const auto& targetTrait,
-            const auto& guessedTrait)
-        {
-            auto CompareRanks = [] (const auto left, const auto right)
-            {
-                if (left < right)
-                {
-                    return TraitGuessState::Lower;
-                }
-                else if (left > right)
-                {
-                    return TraitGuessState::Higher;
-                }
-
-                return TraitGuessState::Correct;
-            };
-
-            if constexpr (requires { targetTrait.Rank && guessedTrait.Rank; })
-            {
-                return CompareRanks(targetTrait.Rank, guessedTrait.Rank);
-            }
-            else if (std::is_same_v<std::remove_cvref_t<decltype
-                    (targetTrait)>, std::string>)
-            {
-                return ((targetTrait == guessedTrait) ?
-                    (TraitGuessState::Correct) 
-                    : (TraitGuessState::Incorrent));
-            }
-            else if (requires { targetTrait < guessedTrait; })
-            {
-                return CompareRanks(targetTrait, guessedTrait);
-            }
-
-            return TraitGuessState::Incorrent;
-        };
-
-        const auto state = TraitsGameState
-        {
-            .Name = cardTrait.Name,
-            .ElixirCost = 
-            { 
-                cardTrait.ElixirCost,
-                CompareTrait(m_Target.ElixirCost, cardTrait.ElixirCost)
-            },
-            .Rarity = 
-            { 
-                cardTrait.Rarity.Name,
-                CompareTrait(m_Target.Rarity, cardTrait.Rarity)
-            },
-            .CardType = 
-            { 
-                cardTrait.CardType,
-                CompareTrait(m_Target.CardType, cardTrait.CardType)
-            },
-            .Targets =
-            {
-                cardTrait.Targets,
-                CompareTrait(m_Target.Targets, cardTrait.Targets)
-            }, 
-            .Range = 
-            { 
-                cardTrait.Range.Name,
-                CompareTrait(m_Target.Range, cardTrait.Range)
-            },
-            .Speed =
-            {
-                cardTrait.Speed.Name,
-                CompareTrait(m_Target.Speed, cardTrait.Speed)
-            },
-            .ReleaseYear =
-            {
-                cardTrait.ReleaseYear, 
-                CompareTrait(m_Target.ReleaseYear, cardTrait.ReleaseYear)
-            },
-            .IsVictory = isGuessCorrect
-        };
-
-        UI::Views::Royal::TraitsGameView::Display(state);
+        // UI::Views::Royal::TraitsGameView::Display(state);
     }
 
     auto TraitsGameSession::IsOver() const noexcept -> bool

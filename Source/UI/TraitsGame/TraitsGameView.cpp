@@ -16,13 +16,13 @@ namespace
     constexpr auto YearWidth = 10;
 
     template <class _Type>
-    using TraitGuess = AGSR::Sessions::Royal::TraitGuess<_Type>;
+    using TraitGuess = AGSR::Business::Modes::Trait::Guess<_Type>;
 
     template <class _Type>
     auto DisplayGuessedTrait(const TraitGuess<_Type>& guess,
         std::size_t width, bool last = false) -> void
     {
-        using GuessState = AGSR::Sessions::Royal::TraitGuessState;
+        using GuessState = AGSR::Business::Modes::Trait::CompResult;
 
         auto compareSymbol = ' ';
 

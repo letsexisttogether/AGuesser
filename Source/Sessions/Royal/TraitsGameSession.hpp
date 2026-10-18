@@ -1,8 +1,7 @@
 #pragma once 
 
-#include "Business/Modes/Game.hpp"
+#include "Business/Modes/TraitsGame.hpp"
 #include "Business/Royal/Providers/TraitsGameProvider.hpp"
-#include "TraitsGameState.hpp"
 
 namespace AGSR::Sessions::Royal
 {
@@ -10,7 +9,6 @@ namespace AGSR::Sessions::Royal
     {
     public:
         using DatabaseConnection = sqlpp::sqlite3::connection;
-        using State = TraitsGameState;
 
     public:
         TraitsGameSession(DatabaseConnection& connection);
@@ -23,12 +21,11 @@ namespace AGSR::Sessions::Royal
         
     private:
         DatabaseConnection& m_DatabaseConnection;
-        Business::Modes::Game<std::uint32_t> m_Game{};
+        Business::Modes::Trait::Game m_Game{};
         Business::Royal::Providers::TraitsGameProvider m_Provider
         {
             m_DatabaseConnection
         };
-        Business::Royal::Domain::CardTrait m_Target{};
         bool m_IsOver{};
     };
 };
