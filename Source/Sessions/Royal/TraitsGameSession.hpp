@@ -20,12 +20,8 @@ namespace AGSR::Sessions::Royal
         auto IsOver() const noexcept -> bool;
         
     private:
-        DatabaseConnection& m_DatabaseConnection;
         Business::Modes::Traits::Game m_Game{};
-        Business::Royal::Providers::TraitsGameProvider m_Provider
-        {
-            m_DatabaseConnection
-        };
+        Business::Royal::Providers::TraitsGameProvider m_Provider;
         bool m_IsOver{};
     };
 };

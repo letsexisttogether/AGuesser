@@ -6,7 +6,7 @@
 namespace AGSR::Sessions::Royal
 {
     TraitsGameSession::TraitsGameSession(DatabaseConnection& connection)
-        : m_DatabaseConnection{ connection }
+        : m_Provider{ connection }
     {}
 
     auto TraitsGameSession::Start() -> void
