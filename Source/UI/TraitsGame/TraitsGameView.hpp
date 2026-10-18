@@ -1,13 +1,13 @@
 #pragma once
 
-#include "Business/Modes/TraitsGame.hpp"
+#include "Business/Modes/Traits/Result.hpp"
 
 namespace AGSR::UI::Views::Royal
 {
     class TraitsGameView final
     {
     public:
-        using State = Business::Modes::Trait::Result;
+        using State = Business::Modes::Traits::Result;
 
     public:
         static auto Display(const State& state) -> void; 

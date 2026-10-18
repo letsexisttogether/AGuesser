@@ -1,6 +1,6 @@
 #pragma once 
 
-#include "Business/Modes/TraitsGame.hpp"
+#include "Business/Modes/Traits/Game.hpp"
 #include "Business/Royal/Providers/TraitsGameProvider.hpp"
 
 namespace AGSR::Sessions::Royal
@@ -21,7 +21,7 @@ namespace AGSR::Sessions::Royal
         
     private:
         DatabaseConnection& m_DatabaseConnection;
-        Business::Modes::Trait::Game m_Game{};
+        Business::Modes::Traits::Game m_Game{};
         Business::Royal::Providers::TraitsGameProvider m_Provider
         {
             m_DatabaseConnection

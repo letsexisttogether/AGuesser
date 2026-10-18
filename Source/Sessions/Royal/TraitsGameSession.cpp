@@ -12,22 +12,23 @@ namespace AGSR::Sessions::Royal
     auto TraitsGameSession::Start() -> void
     {
         const auto ID = m_Provider.GetRandomHeroID();
-        auto cardTrait = m_Provider.GetCardTrait(ID);
+        auto result = m_Provider.GetCardTrait(ID);
 
-        if (!cardTrait)
+        if (!result)
         {
             throw std::runtime_error{ "Can't start session" };
         }
 
-        m_Game.Start(std::move(*cardTrait));
+        auto& cardTrait = *result;
 
-        /*
         Application::GetApplication().GetLogger()
-            .Log("Random hero: ", m_Target.Name, static_cast<std::uint16_t>
-            (m_Target.ElixirCost), m_Target.CardType, m_Target.Rarity.Name,
-            m_Target.Targets, m_Target.Range.Name, m_Target.Range.Name,
-            m_Target.Speed.Name, m_Target.ReleaseYear);
-        */
+            .Log("Random hero: ", cardTrait.Name, static_cast<std::uint16_t>
+            (cardTrait.ElixirCost), cardTrait.CardType, cardTrait.Rarity.Name,
+            cardTrait.Targets, cardTrait.Range.Name, cardTrait.Range.Name,
+            cardTrait.Speed.Name, cardTrait.ReleaseYear);
+
+        m_Game.Start(std::move(cardTrait));
+
     }
 
     auto TraitsGameSession::ProcessGuess(const std::string& name) -> void
@@ -42,8 +43,9 @@ namespace AGSR::Sessions::Royal
         const auto& cardTrait = *result;
 
         const auto guessResult = m_Game.Guess(cardTrait);
+        m_IsOver = guessResult.IsVictory;
 
-        // UI::Views::Royal::TraitsGameView::Display(state);
+        UI::Views::Royal::TraitsGameView::Display(guessResult);
     }
 
     auto TraitsGameSession::IsOver() const noexcept -> bool
