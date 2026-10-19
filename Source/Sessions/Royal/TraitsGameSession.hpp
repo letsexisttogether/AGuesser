@@ -22,6 +22,7 @@ namespace AGSR::Sessions::Royal
         
     private:
         Business::Modes::Traits::Game m_Game{};
+        Business::Modes::Traits::Game::Target m_LastGuess{};
         Business::Royal::Providers::TraitsGameProvider m_Provider;
         bool m_IsOver{};
     };

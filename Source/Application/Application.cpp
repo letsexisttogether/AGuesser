@@ -34,8 +34,6 @@ namespace AGSR
             
             while (!session.IsOver())
             {
-                // After this line every guessResult std::string_view
-                // contains dangling pointers
                 const auto guessResult = session.ProcessGuess(UI::Views::
                     Royal::TraitsGameView::GetInput("Enter name: "));
 

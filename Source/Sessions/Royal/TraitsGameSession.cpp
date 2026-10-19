@@ -32,14 +32,16 @@ namespace AGSR::Sessions::Royal
     auto TraitsGameSession::ProcessGuess(const std::string& name)
         -> std::optional<Business::Modes::Traits::Result>
     {
-        const auto result = m_Provider.GetCardTrait(name);
+        auto result = m_Provider.GetCardTrait(name);
 
         if (!result)
         {
             return std::nullopt;
         }
 
-        const auto guessResult = std::optional{ m_Game.Guess(*result) };
+        m_LastGuess = std::move(*result);
+
+        const auto guessResult = std::optional{ m_Game.Guess(m_LastGuess) };
         m_IsOver = guessResult->IsVictory;
 
         return guessResult;
