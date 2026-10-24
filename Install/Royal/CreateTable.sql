@@ -54,3 +54,12 @@ CREATE TABLE CardTraits
     FOREIGN KEY (RangeTypeID) REFERENCES RangeTypes(ID),
     FOREIGN KEY (SpeedID) REFERENCES Speeds(ID)
 );
+
+DROP TABLE IF EXISTS CardDescriptions;
+CREATE TABLE CardDescriptions
+(
+    CardID INTEGER NOT NULL UNIQUE,
+    Description TEXT NOT NULL,
+
+    FOREIGN KEY (CardID) REFERENCES Cards(ID)
+);
