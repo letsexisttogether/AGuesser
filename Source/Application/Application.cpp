@@ -35,11 +35,11 @@ namespace AGSR
         {
             m_Logger.Init("Log/Logger.txt");
             m_Logger.Log("Init successfull");
+
+            m_IsInit = true;
         }
         catch (std::exception& exp)
         {
-            m_IsInit = false;
-
             std::cerr << "[AGSR::Init] Failed" << std::endl;
         }
     }
