@@ -1,1 +1,5 @@
-target_sources(${APP_NAME} PRIVATE TraitsGameSession.cpp)
+target_sources(${APP_NAME} 
+    PRIVATE 
+        TraitsGameSession.cpp
+        DescriptionGameSession.cpp
+)

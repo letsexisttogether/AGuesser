@@ -7,7 +7,9 @@
 #include <sqlpp23/sqlite3/sqlite3.h>
 
 #include "Sessions/Royal/TraitsGameSession.hpp"
+#include "Sessions/Royal/DescriptionGameSession.hpp"
 #include "UI/View/TraitsGame/TraitsGameView.hpp"
+#include "UI/View/DescriptionGame/DescriptionGameView.hpp"
 
 namespace AGSR
 {
@@ -57,17 +59,17 @@ namespace AGSR
 
         try
         {
-            auto session = Sessions::Royal::TraitsGameSession{};
+            auto session = Sessions::Royal::DescriptionGameSession{};
             session.Start();
             
             while (!session.IsOver())
             {
                 const auto guessResult = session.ProcessGuess(UI::Views::
-                    Royal::TraitsGameView::GetInput("Enter name: "));
+                    Royal::DescriptionGameView::GetInput("Enter name: "));
 
                 if (guessResult)
                 {
-                    UI::Views::Royal::TraitsGameView::
+                    UI::Views::Royal::DescriptionGameView::
                         Display(*guessResult);
                 }
             }

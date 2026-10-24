@@ -8,9 +8,6 @@ namespace AGSR::Sessions::Royal
     class TraitsGameSession
     {
     public:
-        using DatabaseConnection = sqlpp::sqlite3::connection;
-
-    public:
         TraitsGameSession() = default;
         TraitsGameSession(const TraitsGameSession&) = delete;
 

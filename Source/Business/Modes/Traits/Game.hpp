@@ -9,8 +9,8 @@ namespace AGSR::Business::Modes::Traits
     class Game : public Modes::Game<Game, Royal::Domain::CardTrait, Result>    
     {
     public:
-        using Base = Modes::Game<Game,Royal::Domain::CardTrait, Result>;
-        using Target = Royal::Domain::CardTrait;
+        using Base = Modes::Game<Game, Royal::Domain::CardTrait, Result>;
+        using Target = typename Base::Target;
 
     public:
         Game() = default;
@@ -27,7 +27,7 @@ namespace AGSR::Business::Modes::Traits
 
     inline auto Game::Guess(const Target& target) const -> Result
     {
-        const auto isGuessCorrect = m_Target.ID == target.ID;
+        const auto isGuessCorrect = IsGuessCorrect(target);
 
         return Result
         {

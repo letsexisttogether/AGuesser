@@ -7,6 +7,7 @@
 
 #include "Business/Royal/Domain/Tables/Tables.hpp"
 #include "Business/Royal/Domain/Entities/CardTrait.hpp"
+#include "Business/Royal/Domain/Entities/CardDescription.hpp"
 
 namespace AGSR::Business::Royal::Providers
 {
@@ -15,6 +16,7 @@ namespace AGSR::Business::Royal::Providers
     public:
         using DatabaseConnection = sqlpp::sqlite3::connection;
         using CardTraitResult = std::optional<Domain::CardTrait>;
+        using CardDescriptionResult = std::optional<Domain::CardDescription>;
 
     public:
         TraitsGameProvider() = default;
@@ -25,6 +27,11 @@ namespace AGSR::Business::Royal::Providers
         auto GetCardTrait(const std::int32_t ID) -> CardTraitResult;
         auto GetCardTrait(const std::string& name) -> CardTraitResult;
 
+        auto GetCardDescription(const std::int32_t ID)
+            -> CardDescriptionResult;
+        auto GetCardDescription(const std::string& name)
+            -> CardDescriptionResult;
+
         auto operator = (const TraitsGameProvider&)
             -> TraitsGameProvider& = delete;
 
@@ -33,7 +40,13 @@ namespace AGSR::Business::Royal::Providers
         auto GetCardTraitShared(std::conditional_t<_ShouldGetByID,
             const std::int32_t, const std::string&> param) -> CardTraitResult;
 
+        template <bool _ShouldGetByID>
+        auto GetCardDescriptionShared(std::conditional_t<_ShouldGetByID,
+            const std::int32_t, const std::string&> param)
+            -> CardDescriptionResult;
+
     private:
+        Domain::CardDescriptions m_CardDescriptions{};
         Domain::CardTraits m_CardTraits{};
         Domain::Cards m_Cards{};
         Domain::RangeTypes m_RangeTypes{};
