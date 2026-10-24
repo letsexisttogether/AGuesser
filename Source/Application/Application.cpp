@@ -9,6 +9,7 @@
 #include "Sessions/Royal/TraitsGameSession.hpp"
 #include "UI/TraitsGame/TraitsGameView.hpp"
 
+
 namespace
 {
     auto GetConnection() -> sqlpp::sqlite3::connection;
@@ -23,8 +24,33 @@ namespace AGSR
         return app;
     }
 
+    auto Application::GetLogger() -> System::Logger&
+    {
+        return m_Logger;
+    }
+
+    Application::Application() noexcept
+    {
+        try
+        {
+            m_Logger.Init("Log/Logger.txt");
+            m_Logger.Log("Init successfull");
+        }
+        catch (std::exception& exp)
+        {
+            m_IsInit = false;
+
+            std::cerr << "[AGSR::Init] Failed" << std::endl;
+        }
+    }
+
     auto Application::Execute() -> std::int32_t
     {
+        if (!m_IsInit)
+        {
+            return EXIT_FAILURE;
+        }
+
         try
         {
             auto db = GetConnection();
@@ -46,31 +72,12 @@ namespace AGSR
         }
         catch (const std::exception& exp)
         {
-            std::cerr << "[AGSR::Critical error] "
-                << exp.what() << std::endl;
+            m_Logger.Log("[AGSR::Critical error] ", exp.what());
 
             return EXIT_FAILURE;
         }
 
         return EXIT_SUCCESS;
-    }
-
-    auto Application::GetLogger() -> System::Logger&
-    {
-        return m_Logger;
-    }
-
-    Application::Application() noexcept
-    {
-        try
-        {
-            m_Logger.Init("Log/Logger.txt");
-            m_Logger.Log("Init successfull");
-        }
-        catch (std::exception& exp)
-        {
-            std::cerr << "[AGSR::Init] Failed" << std::endl;
-        }
     }
 };
 

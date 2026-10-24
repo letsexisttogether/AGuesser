@@ -4,6 +4,8 @@
 
 #include "System/Logger/Logger.hpp"
 
+auto main() -> std::int32_t;
+
 namespace AGSR
 {
     class Application
@@ -16,17 +18,21 @@ namespace AGSR
         static auto GetApplication() -> Application&;
 
     public:
-        auto Execute() -> std::int32_t;
-
         auto GetLogger() -> System::Logger&;
         
     private:
         Application() noexcept;
 
+        auto Execute() -> std::int32_t;
+
         Application(const Application&) = delete;
         auto operator = (const Application&) -> Application& = delete;
 
     private:
+        friend auto ::main() -> std::int32_t;
+
+    private:
         System::Logger m_Logger{};
+        bool m_IsInit{};
     };
 };
