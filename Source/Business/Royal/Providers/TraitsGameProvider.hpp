@@ -17,7 +17,7 @@ namespace AGSR::Business::Royal::Providers
         using CardTraitResult = std::optional<Domain::CardTrait>;
 
     public:
-        TraitsGameProvider(DatabaseConnection& connection) noexcept;
+        TraitsGameProvider() = default;
         TraitsGameProvider(const TraitsGameProvider&) = delete;
 
         auto GetRandomHeroID() -> std::uint32_t;
@@ -34,8 +34,6 @@ namespace AGSR::Business::Royal::Providers
             const std::int32_t, const std::string&> param) -> CardTraitResult;
 
     private:
-        DatabaseConnection& m_DatabaseConnection;
-
         Domain::CardTraits m_CardTraits{};
         Domain::Cards m_Cards{};
         Domain::RangeTypes m_RangeTypes{};

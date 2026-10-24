@@ -3,6 +3,7 @@
 #include <cstdint>
 
 #include "System/Logger/Logger.hpp"
+#include "System/Database/Connector.hpp"
 
 auto main() -> std::int32_t;
 
@@ -19,6 +20,7 @@ namespace AGSR
 
     public:
         auto GetLogger() -> System::Logger&;
+        auto GetDatabase() -> System::DatabaseConnector&;
         
     private:
         Application() noexcept;
@@ -33,6 +35,7 @@ namespace AGSR
 
     private:
         System::Logger m_Logger{};
+        System::DatabaseConnector m_DBConnector{};
         bool m_IsInit{};
     };
 };

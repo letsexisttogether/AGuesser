@@ -7,13 +7,7 @@
 #include <sqlpp23/sqlite3/sqlite3.h>
 
 #include "Sessions/Royal/TraitsGameSession.hpp"
-#include "UI/TraitsGame/TraitsGameView.hpp"
-
-
-namespace
-{
-    auto GetConnection() -> sqlpp::sqlite3::connection;
-};
+#include "UI/View/TraitsGame/TraitsGameView.hpp"
 
 namespace AGSR
 {
@@ -29,12 +23,22 @@ namespace AGSR
         return m_Logger;
     }
 
+    auto Application::GetDatabase() -> System::DatabaseConnector&
+    {
+        return m_DBConnector;
+    }
+
     Application::Application() noexcept
     {
         try
         {
             m_Logger.Init("Log/Logger.txt");
             m_Logger.Log("Init successfull");
+
+            m_DBConnector.Init(System::DatabaseConnector::Config
+            { 
+                "Data/AGuesserData.db", SQLITE_OPEN_READWRITE
+            });
 
             m_IsInit = true;
         }
@@ -53,9 +57,7 @@ namespace AGSR
 
         try
         {
-            auto db = GetConnection();
-
-            auto session = Sessions::Royal::TraitsGameSession{ db };
+            auto session = Sessions::Royal::TraitsGameSession{};
             session.Start();
             
             while (!session.IsOver())
@@ -78,17 +80,5 @@ namespace AGSR
         }
 
         return EXIT_SUCCESS;
-    }
-};
-
-namespace
-{
-    auto GetConnection() -> sqlpp::sqlite3::connection
-    {
-        auto config = sqlpp::sqlite3::connection_config{};
-        config.path_to_database = "Data/AGuesserData.db";
-        config.flags = SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE;
-
-        return sqlpp::sqlite3::connection{ config };
     }
 };

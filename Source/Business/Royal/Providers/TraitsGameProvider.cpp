@@ -6,21 +6,20 @@
 #include <sqlpp23/core/clause/select.h>
 
 #include "System/Random/Random.hpp"
+#include "Application/Application.hpp"
 #include "Business/Royal/Domain/Entities/CardTrait.hpp"
 
 using namespace sqlpp::alias;
 
 namespace AGSR::Business::Royal::Providers
 {
-    TraitsGameProvider::TraitsGameProvider(DatabaseConnection& connection)
-        noexcept : m_DatabaseConnection{ connection } {};
-
     auto TraitsGameProvider::GetRandomHeroID() -> std::uint32_t
     {
         const auto query = select(m_Cards.ID)
             .from(m_Cards);
 
-        auto queryResult = m_DatabaseConnection(query);
+        auto queryResult = (*Application::GetApplication()
+            .GetDatabase())(query);
 
         if (queryResult.empty())
         {
@@ -72,7 +71,8 @@ namespace AGSR::Business::Royal::Providers
 
         auto ExecuteQuery = [&] (auto&& query) -> CardTraitResult
         {
-            const auto queryResults = m_DatabaseConnection(query);
+            const auto queryResults = (*Application::GetApplication()
+                .GetDatabase())(query);
 
             if (queryResults.empty())
             {

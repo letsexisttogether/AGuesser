@@ -4,10 +4,6 @@
 
 namespace AGSR::Sessions::Royal
 {
-    TraitsGameSession::TraitsGameSession(DatabaseConnection& connection)
-        : m_Provider{ connection }
-    {}
-
     auto TraitsGameSession::Start() -> void
     {
         const auto ID = m_Provider.GetRandomHeroID();

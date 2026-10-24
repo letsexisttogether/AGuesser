@@ -11,7 +11,8 @@ namespace AGSR::Sessions::Royal
         using DatabaseConnection = sqlpp::sqlite3::connection;
 
     public:
-        TraitsGameSession(DatabaseConnection& connection);
+        TraitsGameSession() = default;
+        TraitsGameSession(const TraitsGameSession&) = delete;
 
         auto Start() -> void;
 
@@ -19,11 +20,14 @@ namespace AGSR::Sessions::Royal
             -> std::optional<Business::Modes::Traits::Result>;
 
         auto IsOver() const noexcept -> bool;
+
+        auto operator = (const TraitsGameSession&)
+            -> TraitsGameSession& = delete;
         
     private:
         Business::Modes::Traits::Game m_Game{};
         Business::Modes::Traits::Game::Target m_LastGuess{};
-        Business::Royal::Providers::TraitsGameProvider m_Provider;
+        Business::Royal::Providers::TraitsGameProvider m_Provider{};
         bool m_IsOver{};
     };
 };
