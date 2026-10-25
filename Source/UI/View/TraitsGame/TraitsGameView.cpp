@@ -127,7 +127,7 @@ namespace AGSR::UI::Views::Royal
 
         std::cout << "\n\n";
 
-        if (state.IsVictory)
+        if (state.IsGuessCorrect)
         {
             std::cout << "VICTORY\n";
         }

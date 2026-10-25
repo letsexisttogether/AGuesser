@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Application/Application.hpp"
 #include "Business/Modes/Game.hpp"
 #include "Business/Royal/Domain/Entities/CardDescription.hpp"
 #include "Result.hpp"
@@ -18,7 +19,7 @@ namespace AGSR::Business::Modes::Description
         Game() = default;
         Game(const Game&) = delete;
 
-        auto Start(Target&& target);
+        auto Start(Target&& target) -> void;
 
         auto Guess(const Target& target) const -> Result;
 
@@ -29,9 +30,13 @@ namespace AGSR::Business::Modes::Description
     };
 
 
-    inline auto Game::Start(Target&& target)
+    inline auto Game::Start(Target&& target) -> void
     {
         m_Description = target.Description;
+
+        Application::GetApplication().GetLogger()
+            .Log("Random description: ", target.Name,
+                target.Description);
 
         Base::Start(std::move(target));
     }

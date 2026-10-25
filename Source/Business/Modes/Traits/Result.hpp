@@ -30,6 +30,6 @@ namespace AGSR::Business::Modes::Traits
         Guess<std::string_view> Range{};
         Guess<std::string_view> Speed{};
         Guess<std::uint16_t> ReleaseYear{};
-        bool IsVictory{};
+        bool IsGuessCorrect{};
     };
 };

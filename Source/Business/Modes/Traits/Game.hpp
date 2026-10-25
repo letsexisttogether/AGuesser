@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Application/Application.hpp"
 #include "Business/Modes/Game.hpp"
 #include "Business/Royal/Domain/Entities/CardTrait.hpp"
 #include "Result.hpp"
@@ -16,6 +17,8 @@ namespace AGSR::Business::Modes::Traits
         Game() = default;
         Game(const Game&) = delete;
 
+        auto Start(Target&& target) -> void;
+
         auto Guess(const Target& target) const -> Result;
 
         auto operator = (const Game&) -> Game& = delete;
@@ -24,6 +27,18 @@ namespace AGSR::Business::Modes::Traits
         auto CompareTrait (const auto& targetTrait,
             const auto& guessedTrait) const noexcept -> CompResult;
     };
+
+
+    inline auto Game::Start(Target&& target) -> void
+    {
+        Application::GetApplication().GetLogger()
+            .Log("Random hero: ", target.Name, static_cast<std::uint16_t>
+            (target.ElixirCost), target.CardType, target.Rarity.Name,
+            target.Targets, target.Range.Name, target.Range.Name,
+            target.Speed.Name, target.ReleaseYear);
+
+        Base::Start(std::move(target));
+    }
 
     inline auto Game::Guess(const Target& target) const -> Result
     {
@@ -67,7 +82,7 @@ namespace AGSR::Business::Modes::Traits
                 target.ReleaseYear, 
                 CompareTrait(m_Target.ReleaseYear, target.ReleaseYear)
             },
-            .IsVictory = isGuessCorrect
+            .IsGuessCorrect= isGuessCorrect
         };
     }
 
